@@ -1,0 +1,24 @@
+{
+  "name": "cse341-node",
+  "version": "1.0.0",
+  "description": "Complete Node.js Guide",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon lesson1/app.js",
+    "start-server": "node lesson1/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ozonuweg/cse341-node.git"
+  },
+  "author": "Glory Ozonuwe",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ozonuweg/cse341-node/issues"
+  },
+  "homepage": "https://github.com/ozonuweg/cse341-node#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}

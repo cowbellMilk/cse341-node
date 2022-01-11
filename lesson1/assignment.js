@@ -16,7 +16,7 @@ const server = http.createServer((req, res) => {
     res.setHeader('Content-Type', 'text/html');
     res.write('<html>');
     res.write('<head><title>Assignment 1</title></head>');
-    res.write('<body><ul><li>User 1</li><li>User 2</li></ul></body>');
+    res.write('<body><ul><li>User 1</li><li>User 2</li><li>User 3</li><li>User 4</li></ul></body>');
     res.write('</html>');
     return res.end();
   }
