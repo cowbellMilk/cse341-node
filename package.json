@@ -5,8 +5,10 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon lesson1/app.js",
-    "start-server": "node lesson1/app.js"
+    "start": "nodemon app.js",
+    "start-server": "node app.js",
+    "start-week2": "nodemon week2/app.js",
+    "start-week2-ass1": "nodemon week2/assignment-1.js"
   },
   "repository": {
     "type": "git",
@@ -20,5 +22,11 @@
   "homepage": "https://github.com/ozonuweg/cse341-node#readme",
   "devDependencies": {
     "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.2",
+    "express-handlebars": "^6.0.2",
+    "pug": "^3.0.2"
   }
 }
