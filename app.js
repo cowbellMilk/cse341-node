@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 const errorController = require('./controllers/error');
 
 const app = express();
+const PORT = process.env.PORT || 3000; // So we can run on heroku || (OR) localhost:5000
 
 app.set('view engine', 'ejs');
 app.set('views', 'views');
@@ -21,4 +22,6 @@ app.use(shopRoutes);
 
 app.use(errorController.get404);
 
-app.listen(3000);
+app.listen(PORT, ()=>{  // do not add localhost here if you are deploying it
+    console.log("server listening at port " + PORT);
+});
