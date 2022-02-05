@@ -4,6 +4,9 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
+const PORT = process.env.PORT || 3000;
+const MONGODB_URL = process.env.MONGODB_URL || "mongodb+srv://admin-user:12345@cse341cluster.lkzbg.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+
 const errorController = require('./controllers/error');
 const User = require('./models/user');
 
@@ -34,7 +37,7 @@ app.use(errorController.get404);
 
 mongoose
   .connect(
-    'mongodb+srv://admin-user:12345@cse341cluster.lkzbg.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+    MONGODB_URL
   )
   .then(result => {
     User.findOne().then(user => {
@@ -49,7 +52,7 @@ mongoose
         user.save();
       }
     });
-    app.listen(3000);
+    app.listen(PORT);
   })
   .catch(err => {
     console.log(err);
