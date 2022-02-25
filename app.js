@@ -14,7 +14,7 @@ const PORT = process.env.PORT || 3000;
 
 const errorController = require('./controllers/error');
 const User = require('./models/user');
-const MONGODB_URI = process.env.MONGODB_URI || `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cse341cluster.lkzbg.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
+const MONGODB_URI = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cse341cluster.lkzbg.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
 
 const app = express();
 const store = new MongoDBStore({
@@ -69,7 +69,7 @@ app.use(errorController.get404);
 
 
 const corsOptions = {
-  origin: "https://cse341-bookapp.herokuapp.com/",
+  origin: "https://<your_app_name>.herokuapp.com/",
   optionsSuccessStatus: 200
 };
 app.use(cors(corsOptions));
@@ -77,10 +77,11 @@ app.use(cors(corsOptions));
 const options = {
   family: 4
 };
+const MONGODB_URL = process.env.MONGODB_URL || `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cse341cluster.lkzbg.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
 
 
 mongoose
-  .connect(MONGODB_URI, options)
+  .connect(MONGODB_URL, options)
   .then(result => {
     app.listen(PORT);
   })
