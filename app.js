@@ -14,7 +14,7 @@ const PORT = process.env.PORT || 3000;
 
 const errorController = require('./controllers/error');
 const User = require('./models/user');
-const MONGODB_URI = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cse341cluster.lkzbg.mongodb.net/${process.env.SHOP_DB}?retryWrites=true&w=majority`;
+const MONGODB_URI = process.env.MONGODB_URL || `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cse341cluster.lkzbg.mongodb.net/${process.env.SHOP_DB}?retryWrites=true&w=majority`;
 
 const app = express();
 const store = new MongoDBStore({
