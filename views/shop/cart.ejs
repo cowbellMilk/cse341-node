@@ -23,12 +23,12 @@
                 <div class="centered">
                     <form action="/create-order" method="POST">
                         <input type="hidden" name="_csrf" value="<%= csrfToken %>">
-                        <button type="submit" class="btn">Order Now!</button>
+                        <div class="order-now"><button type="submit" class="btn">Order Now!</button></div>
                     </form>
                 </div>
                 
             <% } else { %>
-                <h1>No Products in Cart!</h1>
+                <h1 class="no-product">No Products in Cart!</h1>
             <% } %>
         </main>
         <%- include('../includes/end.ejs') %>

@@ -1,27 +1,173 @@
-.product-form {
-    width: 20rem;
-    max-width: 90%;
-    margin: auto;
-    display: block;
+:root {
+  --surface-color: #353839;
+  --curve: 40;
 }
 
-.product-item {
-    width: 20rem;
-    max-width: 95%;
-    margin: 1rem;
+* {
+  box-sizing: border-box;
 }
 
-.product__title {
-    font-size: 1.2rem;
-    text-align: center;
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  background-color: black;
+  color: black;
 }
 
-.product__price {
-    text-align: center;
-    color: #4d4d4d;
-    margin-bottom: 0.5rem;
+h1.no-product {
+  color:cornsilk;
 }
 
-.product__description {
-    text-align: center;
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+  margin: 4rem 5vw;
+  padding: 0;
+  list-style-type: none;
+}
+
+.card {
+  position: relative;
+  display: block;
+  height: 100%;  
+  border-radius: calc(var(--curve) * 1px);
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.card__image {      
+  width: 100%;
+  height: auto;
+}
+
+.card__overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;      
+  border-radius: calc(var(--curve) * 1px);    
+  background-color: var(--surface-color);      
+  transform: translateY(100%);
+  transition: .2s ease-in-out;
+}
+
+.card:hover .card__overlay {
+  transform: translateY(0);
+}
+
+.card__header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 2em;
+  padding: 2em;
+  border-radius: calc(var(--curve) * 1px) 0 0 0;    
+  background-color: var(--surface-color);
+  transform: translateY(-100%);
+  transition: .2s ease-in-out;
+}
+
+.card__arc {
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  bottom: 100%;
+  right: 0;      
+  z-index: 1;
+}
+
+.card__arc path {
+  fill: var(--surface-color);
+  /* d: path("M 40 80 c 22 0 40 -22 40 -40 v 40 Z"); */
+}       
+
+.card:hover .card__header {
+  transform: translateY(0);
+}
+
+.card__thumb {
+  flex-shrink: 0;
+  width: 50px;
+  height: 50px;      
+  border-radius: 50%;      
+}
+
+.card__title {
+  font-size: 1em;
+  margin: 0 0 .3em;
+  color: #d1b1c1;
+}
+
+.card__tagline {
+  display: block;
+  margin: 1em 0;
+  font-family: "MockFlowFont";  
+  font-size: .8em; 
+  color: #D7BDCA;  
+}
+
+.card__status {
+  font-size: .8em;
+  color:gainsboro;
+}
+
+.card__description {
+  padding: 0 2em 2em;
+  margin: 0;
+  color: gainsboro;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}    
+
+.addToCart {
+  text-align: center;
+}
+
+form button.btn, div.edit {
+  /* float: right; */
+  /* display: inline-block; */
+  height: 30px;
+  width: 120px;
+  margin: 0 40px 0 16px;
+  box-sizing: border-box;
+  border: transparent;
+  border-radius: 60px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: black;
+  background-color: #ffffff;
+  cursor: pointer;
+  outline: none;
+  text-align: center;
+}
+.card__actions form button.btn {
+  float: right;
+}
+div.edit {
+  float: left;
+}
+
+button.btn:hover {
+  background-color: black;
+  color:cornsilk;
+}
+
+div.edit:hover {
+  background-color: black;
+  color:cornsilk;
+}
+a.btn {
+  font-size: 0.9rem;
+  text-decoration: none;
+  color: black;
+}
+a.btn:hover {
+  /* background-color: black; */
+  color:cornsilk;
 }

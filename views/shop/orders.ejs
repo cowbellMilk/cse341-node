@@ -6,20 +6,22 @@
         <%- include('../includes/navigation.ejs') %>
         <main>
             <% if (orders.length <= 0) { %>
-                <h1>Nothing there!</h1>
+                <h1 class="no-product">Nothing there!</h1>
             <% } else { %>
+                <div class="the-orders">
                 <ul class="orders">
                     <% orders.forEach(order => { %>
                         <li class="orders__item">
                             <h1>Order - # <%= order._id %></h1>
                             <ul class="orders__products">
                                 <% order.products.forEach(p => { %>
-                                    <li class="orders__products-item"><%= p.product.title %> (<%= p.quantity %>)</li>
+                                    <li class="orders__products-item"><%= p.product.title %> - QUANTITY (<%= p.quantity %>)</li>
                                 <% }); %>
                             </ul>
-                        </li>
+                        </li><br>
                     <% }); %>
                 </ul>
+                </div>
             <% } %>
         </main>
         <%- include('../includes/end.ejs') %>

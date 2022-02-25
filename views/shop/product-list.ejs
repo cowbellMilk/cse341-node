@@ -1,42 +1,39 @@
 <%- include('../includes/head.ejs') %>
     <link rel="stylesheet" href="/css/product.css">
-    </head>
+</head>
 
-    <body>
-        <%- include('../includes/navigation.ejs') %>
-
-            <main>
-                <% if (prods.length > 0) { %>
-                    <div class="grid">
-                        <% for (let product of prods) { %>
-                            <article class="card product-item">
-                                <header class="card__header">
-                                    <h1 class="product__title">
-                                        <%= product.title %>
-                                    </h1>
-                                </header>
-                                <div class="card__image">
-                                    <img src="<%= product.imageUrl %>" alt="<%= product.title %>">
+<body>
+    <%- include('../includes/navigation.ejs') %>
+    <main>
+        <% if (prods.length > 0) { %>
+            <div class="cards">
+                <% for (let product of prods) { %>
+                    <article class="card product-item">
+                            <a href="/products/<%= product._id %>" class="card" title="Click to view more details on product">
+                            <img src="<%= product.imageUrl %>" alt="<%= product.title %>" class="card__image" />
+                            <div class="card__overlay">
+                                <div class="card__header">
+                                <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                     
+                                <img class="card__thumb" src="<%= product.imageUrl %>" alt="<%= product.title %>" />
+                                <div class="card__header-text">
+                                    <h3 class="card__title"><%= product.title %></h3>            
+                                    <span class="card__status">$ <%= product.price %></span>
                                 </div>
-                                <div class="card__content">
-                                    <h2 class="product__price">$
-                                        <%= product.price %>
-                                    </h2>
-                                    <p class="product__description">
-                                        <%= product.description %>
-                                    </p>
                                 </div>
-                                <div class="card__actions">
-                                    <a href="/products/<%= product._id %>" class="btn">Details</a>
-                                    <% if (isAuthenticated) { %>
+                                <p class="card__description"><%= product.description %></p>
+        
+                                <% if (isAuthenticated) { %>
+                                    <div class="addToCart" title="Click to add product to Cart">
                                         <%- include('../includes/add-to-cart.ejs', {product: product}) %>
-                                    <% } %>
-                                </div>
-                            </article>
-                            <% } %>
-                    </div>
-                    <% } else { %>
-                        <h1>No Products Found!</h1>
-                        <% } %>
-            </main>
-            <%- include('../includes/end.ejs') %>
+                                    </div>
+                                <% } %><br>
+                            </div>
+                            </a>      
+                    </article>
+                <% } %>
+            </div>
+        <% } else { %>
+            <h1 class="no-product">No Products Found!</h1>
+        <% } %>
+    </main>
+    <%- include('../includes/end.ejs') %>
