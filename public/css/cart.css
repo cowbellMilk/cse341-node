@@ -28,8 +28,25 @@ h1.no-product {
 .cart__item h1,
 .cart__item h2 {
   margin-right: 1rem;
-  font-size: 1.2rem;
+  font-size: 1.6rem;
+  font-weight: 400;
   margin: 0;
+}
+
+.cart__item form button {
+  text-decoration: none;
+  font-size: 1.6rem;
+  font-weight: 400;
+  padding: 8px 15px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  color: red;
+  background-color: #fff;
+}
+
+.cart__item form button:hover {
+  color: #fff;
+  background-color: red;
 }
 
 button {

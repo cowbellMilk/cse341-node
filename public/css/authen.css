@@ -3,8 +3,12 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  font-family: "Open Sans", sans-serif;
+  /* font-family: "Open Sans", sans-serif; */
   color: #333333;
+}
+
+p {
+  font-size: 1.6em;
 }
 
 .box-form {
@@ -99,6 +103,7 @@ body {
   border: none;
   outline: none;
   border-bottom: 2px solid #B0B3B9;
+  font-family: 'Poppins',sans-serif;
 }
 .box-form .right .remember-me--forget-password {
   display: flex;

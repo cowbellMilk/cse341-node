@@ -1,57 +1,32 @@
-<!-- <div class="backdrop"></div> -->
-<header class="main-header">
-    <!-- <button id="side-menu-toggle">Menu</button> -->
-    <nav>
-        <div class="menu">
-            <div class="logo"><a href="/">Davido.Merch</a></div>
-            <ul>
-                <li><a class="<%= path === '/' ? 'active' : '' %>" href="/">Home</a></li>
-                <li><a class="<%= path === '/products' ? 'active' : '' %>" href="/products">Products</a></li>
-                <% if (isAuthenticated) { %>
-                    <li><a class="<%= path === '/cart' ? 'active' : '' %>" href="/cart">Cart</a></li>
-                    <li><a class="<%= path === '/orders' ? 'active' : '' %>" href="/orders">Orders</a></li>
-                    <li><a class="<%= path === '/admin/add-product' ? 'active' : '' %>" href="/admin/add-product">Add Product</a></li>
-                    <li><a class="<%= path === '/admin/products' ? 'active' : '' %>" href="/admin/products">Admin Products</a></li>
-                <% } %>
-            </ul>
-            <ul class="main-header__item-list">
-                <% if (!isAuthenticated) { %>
-                    <li class="main-header__item"><a class="<%= path === '/login' ? 'active' : '' %>" href="/login">Login</a></li>
-                    <li class="main-header__item"><a class="<%= path === '/signup' ? 'active' : '' %>" href="/signup">Signup</a></li>
-                <% } else { %>
-                    <li class="main-header__item">
-                        <form action="/logout" method="post">
-                            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
-                            <button type="submit">Logout</button>
-                        </form>
-                    </li>
-                <% } %>
-            </ul>
-            <strong id="mobile-menu-btn">Menu</strong>
-        </div>
-    </nav>
-
-
-
-
-
-    <div class="mobile-nav">
-        <ul>
-            <li><a class="<%= path === '/' ? 'active' : '' %>" href="/">Home</a></li>
-            <li><a class="<%= path === '/products' ? 'active' : '' %>" href="/products">Products</a></li>
+<header class="header">
+    <nav class="navbar">
+        <a href="/" class="nav-logo">Davido.Merch</a>
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <a href="/" class="nav-link <%= path === '/' ? 'active' : '' %>">Home</a>
+            </li>
+            <li class="nav-item">
+                <a href="/products" class="nav-link <%= path === '/products' ? 'active' : '' %>">Products</a>
+            </li>
             <% if (isAuthenticated) { %>
-                <li><a class="<%= path === '/cart' ? 'active' : '' %>" href="/cart">Cart</a></li>
-                <li><a class="<%= path === '/orders' ? 'active' : '' %>" href="/orders">Orders</a></li>
-                <li><a class="<%= path === '/admin/add-product' ? 'active' : '' %>" href="/admin/add-product">Add Product</a></li>
-                <li><a class="<%= path === '/admin/products' ? 'active' : '' %>" href="/admin/products">Admin Products</a></li>
+            <li class="nav-item">
+                <a href="/cart" class="nav-link <%= path === '/cart' ? 'active' : '' %>">Cart</a>
+            </li>
+            <li class="nav-item">
+                <a href="/orders" class="nav-link <%= path === '/orders' ? 'active' : '' %>">Orders</a>
+            </li>
+            <li class="nav-item">
+                <a href="/admin/add-product" class="nav-link <%= path === '/admin/add-product' ? 'active' : '' %>">Add Products</a>
+            </li>
+            <li class="nav-item">
+                <a href="/admin/products" class="nav-link <%= path === '/admin/products' ? 'active' : '' %>">Admin Products</a>
+            </li>
             <% } %>
-        </ul>
-        <ul class="main-header__item-list">
             <% if (!isAuthenticated) { %>
-                <li class="main-header__item"><a class="<%= path === '/login' ? 'active' : '' %>" href="/login">Login</a></li>
-                <li class="main-header__item"><a class="<%= path === '/signup' ? 'active' : '' %>" href="/signup">Signup</a></li>
+                <li class="nav-item"><a class="<%= path === '/login' ? 'active' : '' %>" href="/login">Login</a></li>
+                <li class="nav-item"><a class="<%= path === '/signup' ? 'active' : '' %>" href="/signup">Signup</a></li>
             <% } else { %>
-                <li class="main-header__item">
+                <li class="nav-item">
                     <form action="/logout" method="post">
                         <input type="hidden" name="_csrf" value="<%= csrfToken %>">
                         <button type="submit">Logout</button>
@@ -59,48 +34,10 @@
                 </li>
             <% } %>
         </ul>
-    </div>
-
+        <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </nav>
 </header>
-
-<!-- <nav class="mobile-nav">
-    <ul class="mobile-nav__item-list">
-        <li class="mobile-nav__item">
-            <a class="<%= path === '/' ? 'active' : '' %>" href="/">Shop</a>
-        </li>
-        <li class="mobile-nav__item">
-            <a class="<%= path === '/products' ? 'active' : '' %>" href="/products">Products</a>
-        </li>
-        <% if (isAuthenticated) { %>
-            <li class="mobile-nav__item">
-                <a class="<%= path === '/cart' ? 'active' : '' %>" href="/cart">Cart</a>
-            </li>
-            <li class="mobile-nav__item">
-                <a class="<%= path === '/orders' ? 'active' : '' %>" href="/orders">Orders</a>
-            </li>
-            <li class="mobile-nav__item">
-                <a class="<%= path === '/admin/add-product' ? 'active' : '' %>" href="/admin/add-product">Add Product
-                </a>
-            </li>
-            <li class="mobile-nav__item">
-                <a class="<%= path === '/admin/products' ? 'active' : '' %>" href="/admin/products">Admin Products
-                </a>
-            </li>
-        <% } %>
-        <% if (!isAuthenticated) { %>
-            <li class="mobile-nav__item">
-                <a class="<%= path === '/login' ? 'active' : '' %>" href="/login">Login</a>
-            </li>
-            <li class="mobile-nav__item">
-                <a class="<%= path === '/signup' ? 'active' : '' %>" href="/signup">Signup</a>
-            </li>
-        <% } else { %>
-            <li class="mobile-nav__item">
-                <form action="/logout" method="post">
-                    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
-                    <button type="submit">Logout</button>
-                </form>
-            </li>
-        <% } %>
-    </ul>
-</nav> -->

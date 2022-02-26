@@ -3,17 +3,18 @@
   --curve: 40;
 }
 
-* {
+/* * {
   box-sizing: border-box;
-}
+} */
 
 body {
-  font-family: 'Noto Sans JP', sans-serif;
+  font-family: 'Poppins',sans-serif;
   background-color: black;
   color: black;
 }
 
 h1.no-product {
+  font-family: 'Bentham', serif;
   color:cornsilk;
 }
 
@@ -33,6 +34,7 @@ h1.no-product {
   border-radius: calc(var(--curve) * 1px);
   overflow: hidden;
   text-decoration: none;
+  font-family: 'Bentham', serif;
 }
 
 .card__image {      
@@ -79,7 +81,6 @@ h1.no-product {
 
 .card__arc path {
   fill: var(--surface-color);
-  /* d: path("M 40 80 c 22 0 40 -22 40 -40 v 40 Z"); */
 }       
 
 .card:hover .card__header {
@@ -94,21 +95,14 @@ h1.no-product {
 }
 
 .card__title {
-  font-size: 1em;
+  font-size: 2.4em;
   margin: 0 0 .3em;
   color: #d1b1c1;
 }
 
-.card__tagline {
-  display: block;
-  margin: 1em 0;
-  font-family: "MockFlowFont";  
-  font-size: .8em; 
-  color: #D7BDCA;  
-}
-
 .card__status {
-  font-size: .8em;
+  font-family: 'Trocchi', serif;
+  font-size: 1.8em;
   color:gainsboro;
 }
 
@@ -120,6 +114,7 @@ h1.no-product {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
   overflow: hidden;
+  font-size: 1.8em;
 }    
 
 .addToCart {
@@ -127,8 +122,6 @@ h1.no-product {
 }
 
 form button.btn, div.edit {
-  /* float: right; */
-  /* display: inline-block; */
   height: 30px;
   width: 120px;
   margin: 0 40px 0 16px;
@@ -151,6 +144,7 @@ form button.btn, div.edit {
 }
 div.edit {
   float: left;
+  font-size: 2em;
 }
 
 button.btn:hover {
@@ -163,11 +157,10 @@ div.edit:hover {
   color:cornsilk;
 }
 a.btn {
-  font-size: 0.9rem;
+  font-size: 1.2rem;
   text-decoration: none;
   color: black;
 }
 a.btn:hover {
-  /* background-color: black; */
   color:cornsilk;
 }

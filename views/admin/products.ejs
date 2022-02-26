@@ -1,5 +1,6 @@
 <%- include('../includes/head.ejs') %>
     <link rel="stylesheet" href="/css/product.css">
+    <link href="https://fonts.googleapis.com/css?family=Bentham|Playfair+Display|Raleway:400,500|Suranna|Trocchi" rel="stylesheet">
 </head>
 
 <body>
@@ -9,7 +10,6 @@
             <div class="cards">
                 <% for (let product of prods) { %>
                     <article class="card product-item">
-                            <!-- <a href="/products/<%= product._id %>" class="card" title="Click to view more details on product"> -->
                             <img src="<%= product.imageUrl %>" alt="<%= product.title %>" class="card__image" />
                             <div class="card__overlay">
                                 <div class="card__header">
